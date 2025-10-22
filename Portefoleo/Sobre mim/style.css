@@ -1,0 +1,347 @@
+/* Importação de Fontes (já no HTML, mas bom para referência) */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@400;700&display=swap'); */
+
+/* Estilos Globais e do Corpo da Página */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+}
+
+
+.container-content {
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+
+/* Estilos do Cabeçalho (Header) */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    color: #aaff80;
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 18px;
+}
+
+nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 600; 
+    transition: color 0.3s ease-in-out, transform 0.3s ease; 
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #aaff80; 
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover::after {
+    width: 100%; 
+}
+
+
+
+nav a:hover {
+    color: #aaff80; 
+    transform: translateY(-2px); 
+}
+
+/* Estilos das Seções */
+section {
+    padding: 60px 20px; 
+    margin: 20px auto;
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(0);
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+/* Animação para as seções aparecerem suavemente */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Atraso para cada seção aparecer em sequência (ajuste os segundos) */
+section:nth-of-type(1) { animation-delay: 0.2s; } /* Sobre Mim */
+section:nth-of-type(2) { animation-delay: 0.4s; } /* Habilidades */
+section:nth-of-type(3) { animation-delay: 0.6s; } /* A Estudar */
+section:nth-of-type(4) { animation-delay: 0.8s; } /* Projetos */
+section:nth-of-type(5) { animation-delay: 1.0s; } /* Contacto */
+
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #aaff80;
+    border-bottom: 2px solid rgba(170, 255, 128, 0.3);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2.8em;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #f5f5f5;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+p {
+    color: #ccc;
+    font-size: 1.1em;
+}
+
+li {
+    color: #ccc;
+    font-size: 1.05em;
+}
+
+/* Estilos para a Seção de Habilidades */
+#habilidades ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+#habilidades ul li {
+    background-color: #aaff80;
+    color: #1a1a1a;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#habilidades ul li:hover {
+    transform: translateY(-3px) scale(1.05);
+    background-color: #88ee55;
+}
+
+/* Estilos para a Seção de Projetos */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.projeto {
+    background-color: #3a3a3a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5); /* Sombra mais forte */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto:hover {
+    transform: translateY(-8px); /* Eleva mais ao passar o mouse */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7); /* Sombra ainda mais forte */
+}
+
+.projeto h3 {
+    color: #aaff80; /* Cor de destaque para o título do projeto */
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+}
+
+.projeto p {
+    font-size: 1em;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Estilos para o botão "Ver Projeto" */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #aaff80;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent; /* Borda transparente inicialmente */
+}
+
+.btn:hover {
+    background-color: #1a1a1a; /* Fundo escuro ao passar o mouse */
+    color: #aaff80; /* Texto com a cor de destaque */
+    border-color: #aaff80; /* Borda com a cor de destaque */
+}
+
+/* Estilos do Rodapé (Footer) */
+footer {
+    background-color: #111; /* Fundo bem escuro */
+    color: #ccc;
+    text-align: center;
+    padding: 25px 0; /* Mais padding */
+    font-size: 0.9em;
+    margin-top: auto; /* Empurra o footer para o final da página */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5); /* Sombra para o footer */
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Coloca o título e o menu em coluna */
+        padding: 10px 0; /* Ajusta padding */
+    }
+
+    header h1 {
+        font-size: 1.7em;
+        margin-bottom: 10px; /* Espaçamento entre título e menu */
+    }
+
+    nav ul li {
+        margin: 0 10px; /* Menos espaçamento nos links */
+    }
+
+    h2 {
+        font-size: 2.2em; /* Reduz tamanho dos títulos de seção */
+    }
+
+    section {
+        padding: 40px 15px; /* Menos padding em telas pequenas */
+        margin: 15px auto;
+    }
+
+    .projetos-grid {
+        grid-template-columns: 1fr; /* Um projeto por linha em telas menores */
+    }
+
+    .projeto {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 8px 0;
+    }
+
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    nav ul li {
+        margin: 0 8px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    #habilidades ul li {
+        padding: 8px 18px;
+        font-size: 0.9em;
+        border-radius: 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    input, textarea{
+        padding: 12px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2f2f2f;
+        color: #f5f5f5;
+        font-size: 1em;
+        box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        transition: all 0.3s ease
+    }
+
+    input:focus, textarea:focus {
+        outline: none;
+        background-color: 3a3a3a;
+        box-shadow: 0 0 5px #aaff80;
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+}
